@@ -58,4 +58,51 @@ public class Reserva {
             this.lugares.add(lugar);
         }
     }
+
+    public boolean saoLugaresAdjacentes() {
+
+        if (lugares.size() <= 1) {
+            return true;
+        }
+
+
+        for (int i = 0; i < lugares.size() - 1; i++) {
+            Lugar atual = lugares.get(i);
+            Lugar proximo = lugares.get(i + 1);
+
+
+            if (atual.getFila() != proximo.getFila()) {
+                return false;
+            }
+
+
+            if (proximo.getNumero() != atual.getNumero() + 1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    public boolean validarReserva() {
+
+        if (cliente == null || sessao == null) {
+            return false;
+        }
+
+
+        if (lugares.isEmpty()) {
+            return false;
+        }
+
+
+        if (!saoLugaresAdjacentes()) {
+            return false;
+        }
+
+        return true;
+    }
+
+
 }
