@@ -2,6 +2,7 @@ package org.example;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Sessao {
     private String nomeFilme;
@@ -41,6 +42,18 @@ public class Sessao {
     public void setSala(Sala sala) {
         if (sala != null) {
             this.sala = sala;
+        }
+    }
+
+    public static void listarSessoes(List<Sessao> sessoes) {
+        System.out.println("\n--- SESSÕES DISPONÍVEIS ---");
+        if (sessoes.isEmpty()) {
+            System.out.println("Nenhuma sessão disponível.");
+            return;
+        }
+        for (int i = 0; i < sessoes.size(); i++) {
+            Sessao s = sessoes.get(i);
+            System.out.println("Sessão nº " + i + " | Filme: " + s.getNomeFilme() + " | Sala: " + s.getSala().getNumero());
         }
     }
 }
