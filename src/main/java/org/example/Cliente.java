@@ -3,6 +3,7 @@ package org.example;
 public class Cliente {
 
     private String numero;
+    private int telefone;
 
 
     public Cliente(String numero) {
@@ -20,4 +21,11 @@ public class Cliente {
         }
     }
 
+    public int getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
 }
